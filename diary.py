@@ -9,6 +9,18 @@ def add_entry():
     print("Entry saved")
 
 
+def view_entries():
+    date = input("Enter the date to search: ")
+
+    file = open("diary.txt", "r")
+
+    for line in file:
+        if line.startswith(date):
+            print(line)
+
+    file.close()
+
+
 while True:
     print("\nDiary Menu")
     print("1. Add diary entry")
@@ -19,6 +31,8 @@ while True:
 
     if choice == "1":
         add_entry()
+    elif choice == "2":
+        view_entries()
     elif choice == "3":
         print("Goodbye")
         break
